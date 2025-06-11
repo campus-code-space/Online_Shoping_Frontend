@@ -1,41 +1,28 @@
-import React from 'react'
-import '../index.css';
-function ProductItem({ product ,loading}) {
-  if(loading){
+import React from 'react';
 
+function ProductItem({ product, loading }) {
+  if (loading) {
     return (
-      <li className="p-[10px] item-1 list-none border-none">
-      <div className="card is-loading mx-2 w-[300px] bg-white rounded shadow-md border-none">
-        <div className="image h-[200px] rounded-t border-none">
-          <img src="" alt="" className='border-none' />
-        </div>
-        <div className="content p-5">
-          <h2 className="shimmer h-[30px] w-3/4 mb-4 rounded"></h2>
-          <p className="shimmer h-[70px] w-full rounded"></p>
-        </div>
+      <div className="bg-white p-4 rounded-lg shadow animate-pulse">
+        <div className="h-32 bg-gray-300 rounded mb-4"></div>
+        <div className="h-4 bg-gray-300 rounded w-3/4 mb-2"></div>
+        <div className="h-4 bg-gray-300 rounded w-1/2"></div>
       </div>
-    </li>
-  )
+    );
   }
-  if(!loading){
-    return (
-      <li className="p-[10px] item-1 list-none">
-      <div className="card mx-2 w-[310px] bg-white rounded shadow-md">
-        <div className="image h-[350px] rounded-t overflow-hidden">
-          <img
-          className="object-cover w-full h-full"
-           src={product.product_image} alt={product.name} />
-        </div>
-        <div className="content p-5">
-          <h2 className="text-lg font-semibold mb-2">{product.name}</h2>
-          <p className="text-sm text-gray-700">{product.decription}</p>
-        </div>
-      </div>
-    </li>
-  )
+
+  return (
+    <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition duration-200">
+      <h2>test message</h2>
+      <img
+        src={product.image}
+        alt={product.name}
+        className="h-32 object-contain w-full mb-4"
+      />
+      <h3 className="text-lg font-semibold">{product.name}</h3>
+      <p className="text-green-600 font-bold">${product.price}</p>
+    </div>
+  );
 }
 
-
-}
-
-export default ProductItem
+export default ProductItem;
